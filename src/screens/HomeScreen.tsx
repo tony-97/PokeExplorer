@@ -8,11 +8,11 @@ import {
   Text,
   View,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 import { fetchPokemonList } from '../api/pokeapi';
 import PokemonListItem from '../components/PokemonListItem';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { addFavorite, removeFavorite } from '../store/actions';
+import { addFavorite, removeFavorite } from '../store/appSlice';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { RootState } from '../store/store';
 
 const PAGE_SIZE = 20;
@@ -26,8 +26,8 @@ export default function HomeScreen({
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const favorites = useSelector((state: RootState) => state.favorites);
-  const dispatch = useDispatch();
+  const favorites = useAppSelector((state: RootState) => state.favorites);
+  const dispatch = useAppDispatch();
 
   const loadMore = useCallback(async () => {
     if (loading || !hasMore) return;

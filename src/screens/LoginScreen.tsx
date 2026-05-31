@@ -7,15 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../store/actions';
+import { login } from '../store/appSlice';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { RootState } from '../store/store';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
-  const loginError = useSelector((state: RootState) => state.loginError);
+  const dispatch = useAppDispatch();
+  const loginError = useAppSelector((state: RootState) => state.loginError);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {

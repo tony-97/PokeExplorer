@@ -2,10 +2,10 @@ import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 import FavoriteIcon from '../components/FavoriteIcon';
 import { RootStackParamList } from '../navigation/AppNavigator';
-import { addFavorite, removeFavorite } from '../store/actions';
+import { addFavorite, removeFavorite } from '../store/appSlice';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { RootState } from '../store/store';
 
 export default function DetailScreen({
@@ -15,8 +15,8 @@ export default function DetailScreen({
   route: RouteProp<RootStackParamList, 'Detail'>;
 }) {
   const { pokemon } = route.params;
-  const dispatch = useDispatch();
-  const favorites = useSelector((state: RootState) => state.favorites);
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector((state: RootState) => state.favorites);
   const isFavorite = favorites.some(f => f.name === pokemon.name);
 
   const handleToggleFavorite = () => {

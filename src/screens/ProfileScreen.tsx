@@ -1,13 +1,13 @@
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../store/actions';
+import { logout } from '../store/appSlice';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { RootState } from '../store/store';
 
 export default function ProfileScreen() {
-  const user = useSelector((state: RootState) => state.user);
-  const dispatch = useDispatch();
+  const user = useAppSelector((state: RootState) => state.user);
+  const dispatch = useAppDispatch();
 
   return (
     <View style={styles.container}>
