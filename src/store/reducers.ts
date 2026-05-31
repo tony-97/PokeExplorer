@@ -1,11 +1,11 @@
 import {
-  AppState,
-  AppActions,
   ADD_FAVORITE,
-  REMOVE_FAVORITE,
+  AppActions,
+  AppState,
   LOGIN,
   LOGIN_ERROR,
   LOGOUT,
+  REMOVE_FAVORITE,
 } from './types';
 
 const initialState: AppState = {
@@ -15,11 +15,7 @@ const initialState: AppState = {
   loginError: null,
 };
 
-export const appReducer = (
-  state = initialState,
-
-  action: AppActions,
-): AppState => {
+export function appReducer(state = initialState, action: AppActions): AppState {
   switch (action.type) {
     case ADD_FAVORITE:
       return {
@@ -55,4 +51,4 @@ export const appReducer = (
     default:
       return state;
   }
-};
+}

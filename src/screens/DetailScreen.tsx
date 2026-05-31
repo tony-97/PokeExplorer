@@ -1,27 +1,19 @@
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Button,
-  ScrollView,
-} from 'react-native';
+import { Image, ScrollView, StyleSheet, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import FavoriteIcon from '../components/FavoriteIcon';
+import { RootStackParamList } from '../navigation/AppNavigator';
 import { addFavorite, removeFavorite } from '../store/actions';
 import { RootState } from '../store/store';
-import { Pokemon } from '../types/pokemon';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RouteProp } from '@react-navigation/native';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import FavoriteIcon from '../components/FavoriteIcon';
 
-type Props = {
+export default function DetailScreen({
+  route,
+}: {
   navigation: StackNavigationProp<RootStackParamList, 'Detail'>;
   route: RouteProp<RootStackParamList, 'Detail'>;
-};
-
-const DetailScreen: React.FC<Props> = ({ route }) => {
+}) {
   const { pokemon } = route.params;
   const dispatch = useDispatch();
   const favorites = useSelector((state: RootState) => state.favorites);
@@ -65,7 +57,7 @@ const DetailScreen: React.FC<Props> = ({ route }) => {
       ))}
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -93,5 +85,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default DetailScreen;

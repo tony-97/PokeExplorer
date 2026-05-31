@@ -1,27 +1,27 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import { StackNavigationProp } from '@react-navigation/stack';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
-  View,
-  FlatList,
   ActivityIndicator,
+  FlatList,
   StyleSheet,
   Text,
+  View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-import { addFavorite, removeFavorite } from '../store/actions';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
-import PokemonListItem from '../components/PokemonListItem';
 import { fetchPokemonList } from '../api/pokeapi';
-import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import PokemonListItem from '../components/PokemonListItem';
+import { RootStackParamList } from '../navigation/AppNavigator';
+import { addFavorite, removeFavorite } from '../store/actions';
+import { RootState } from '../store/store';
 
 const PAGE_SIZE = 20;
 
-type Props = {
+export default function HomeScreen({
+  navigation,
+}: {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
-};
-
-const HomeScreen: React.FC<Props> = ({ navigation }) => {
+}) {
   const [pokemon, setPokemon] = useState<any[]>([]);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -87,7 +87,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
       />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -113,5 +113,3 @@ const styles = StyleSheet.create({
     padding: 8,
   },
 });
-
-export default HomeScreen;

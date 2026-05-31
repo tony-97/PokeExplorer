@@ -1,38 +1,31 @@
 import React from 'react';
 
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 import { Pokemon } from '../types/pokemon';
 
-interface Props {
-  pokemon: Pokemon;
-
-  isFavorite: boolean;
-
-  onAdd: () => void;
-
-  onRemove: () => void;
-}
-
-export const PokemonItem: React.FC<Props> = ({
+export default function PokemonItem({
   pokemon,
-
   isFavorite,
-
   onAdd,
-
   onRemove,
-}) => (
-  <View style={styles.container}>
-    <Text style={styles.text}>{pokemon.name}</Text>
-
-    {isFavorite ? (
-      <Button title="Remove" onPress={onRemove} />
-    ) : (
-      <Button title="Add" onPress={onAdd} />
-    )}
-  </View>
-);
+}: {
+  pokemon: Pokemon;
+  isFavorite: boolean;
+  onAdd: () => void;
+  onRemove: () => void;
+}) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>{pokemon.name}</Text>
+      {isFavorite ? (
+        <Button title="Remove" onPress={onRemove} />
+      ) : (
+        <Button title="Add" onPress={onAdd} />
+      )}
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {

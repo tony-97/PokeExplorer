@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store/store';
-import { logout } from '../store/actions';
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../store/actions';
+import { RootState } from '../store/store';
 
-const ProfileScreen: React.FC = () => {
+export default function ProfileScreen() {
   const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
 
@@ -43,7 +43,7 @@ const ProfileScreen: React.FC = () => {
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -87,5 +87,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default ProfileScreen;

@@ -2,13 +2,9 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from '../screens/HomeScreen';
-
-import FavoritesScreen from '../screens/FavoritesScreen';
-
-import LoginScreen from '../screens/LoginScreen';
-import DetailScreen from '../screens/DetailScreen';
 import { useSelector } from 'react-redux';
+import DetailScreen from '../screens/DetailScreen';
+import LoginScreen from '../screens/LoginScreen';
 import { RootState } from '../store/store';
 import MainTabs from './MainTabs';
 
@@ -21,7 +17,7 @@ export type RootStackParamList = {
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export const AppNavigator = () => {
+export function AppNavigator() {
   const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
   return (
     <Stack.Navigator>
@@ -43,4 +39,4 @@ export const AppNavigator = () => {
       )}
     </Stack.Navigator>
   );
-};
+}

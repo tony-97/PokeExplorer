@@ -1,17 +1,17 @@
-import React from 'react';
-import { View, FlatList } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-import { removeFavorite } from '../store/actions';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import React from 'react';
+import { FlatList, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import PokemonListItem from '../components/PokemonListItem';
+import { RootStackParamList } from '../navigation/AppNavigator';
+import { removeFavorite } from '../store/actions';
+import { RootState } from '../store/store';
 
-type Props = {
+export default function FavoritesScreen({
+  navigation,
+}: {
   navigation: StackNavigationProp<RootStackParamList, 'Favorites'>;
-};
-
-const FavoritesScreen: React.FC<Props> = ({ navigation }) => {
+}) {
   const favorites = useSelector((state: RootState) => state.favorites);
   const dispatch = useDispatch();
 
@@ -31,6 +31,4 @@ const FavoritesScreen: React.FC<Props> = ({ navigation }) => {
       />
     </View>
   );
-};
-
-export default FavoritesScreen;
+}

@@ -1,9 +1,9 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import FavoritesScreen from '../screens/FavoritesScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import FavoritesScreen from '../screens/FavoritesScreen';
+import HomeScreen from '../screens/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 export type MainTabParamList = {
   Home: undefined;
@@ -13,7 +13,7 @@ export type MainTabParamList = {
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const MainTabs = () => {
+export default function MainTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -45,6 +45,4 @@ const MainTabs = () => {
       />
     </Tab.Navigator>
   );
-};
-
-export default MainTabs;
+}

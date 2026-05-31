@@ -1,18 +1,17 @@
+import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 import React, { useState } from 'react';
 import {
-  View,
-  TextInput,
-  Button,
-  Text,
   StyleSheet,
+  Text,
+  TextInput,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/actions';
 import { RootState } from '../store/store';
-import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 
-const LoginScreen: React.FC = () => {
+export default function LoginScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -74,7 +73,7 @@ const LoginScreen: React.FC = () => {
       {loginError ? <Text style={styles.error}>{loginError}</Text> : null}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -134,5 +133,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export default LoginScreen;

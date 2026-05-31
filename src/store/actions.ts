@@ -2,26 +2,28 @@ import { Pokemon } from '../types/pokemon';
 
 import {
   ADD_FAVORITE,
-  REMOVE_FAVORITE,
-  LOGIN,
-  LOGOUT,
-  LOGIN_ERROR,
   AppActions,
+  LOGIN,
+  LOGIN_ERROR,
+  LOGOUT,
+  REMOVE_FAVORITE,
 } from './types';
 
-export const addFavorite = (pokemon: Pokemon): AppActions => ({
-  type: ADD_FAVORITE,
+export function addFavorite(pokemon: Pokemon): AppActions {
+  return {
+    type: ADD_FAVORITE,
+    payload: pokemon,
+  };
+}
 
-  payload: pokemon,
-});
+export function removeFavorite(name: string): AppActions {
+  return {
+    type: REMOVE_FAVORITE,
+    payload: name,
+  };
+}
 
-export const removeFavorite = (name: string): AppActions => ({
-  type: REMOVE_FAVORITE,
-
-  payload: name,
-});
-
-export const login = (username: string, password: string): AppActions => {
+export function login(username: string, password: string): AppActions {
   if (username === 'admin' && password === '1234') {
     return {
       type: LOGIN,
@@ -33,8 +35,10 @@ export const login = (username: string, password: string): AppActions => {
       payload: 'Usuario o contraseña incorrectos',
     };
   }
-};
+}
 
-export const logout = (): AppActions => ({
-  type: LOGOUT,
-});
+export function logout(): AppActions {
+  return {
+    type: LOGOUT,
+  };
+}
