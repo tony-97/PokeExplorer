@@ -6,7 +6,7 @@ export const fetchPokemonList = async (
   offset: number = 0,
   limit: number = 50,
 ): Promise<{
-  results: { name: string; url: string }[];
+  results: Pokemon[];
   next: string | null;
 }> => {
   const response = await axios.get(
