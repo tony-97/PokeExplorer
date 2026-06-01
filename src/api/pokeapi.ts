@@ -1,19 +1,28 @@
 import axios from 'axios';
 
-import { Pokemon } from '../types/pokemon';
+import { PokemonData, PokemonListItem, PokemonListResponse } from './types';
 
 export async function fetchPokemonList(
   offset: number = 0,
   limit: number = 50,
-): Promise<{
-  results: Pokemon[];
-  next: string | null;
-}> {
-  const response = await axios.get(
-    `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`,
+): Promise<PokemonListResponse> {
+  const response = await axios.get<PokemonListResponse>(
+    'https://pokeapi.co/api/v2/pokemon',
+    {
+      params: {
+        offset,
+        limit,
+      },
+    },
   );
-  return {
-    results: response.data.results,
-    next: response.data.next,
-  };
+  return response.data;
+}
+
+export async function fetchPokemon(pokemons: PokemonListItem[]) {
+  return await Promise.all(
+    pokemons.map(async pokemon => {
+      const response = await axios.get<PokemonData>(pokemon.url);
+      return response.data;
+    }),
+  );
 }

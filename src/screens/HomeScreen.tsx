@@ -8,7 +8,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import { fetchPokemonList } from '../api/pokeapi';
+import { fetchPokemon, fetchPokemonList } from '../api/pokeapi';
+import { PokemonData } from '../api/types';
 import PokemonListItem from '../components/PokemonListItem';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { addFavorite, removeFavorite } from '../store/appSlice';
@@ -22,7 +23,7 @@ export default function HomeScreen({
 }: {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
 }) {
-  const [pokemon, setPokemon] = useState<any[]>([]);
+  const [pokemon, setPokemon] = useState<PokemonData[]>([]);
   const [offset, setOffset] = useState(0);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
@@ -32,16 +33,11 @@ export default function HomeScreen({
   const loadMore = useCallback(async () => {
     if (loading || !hasMore) return;
     setLoading(true);
-    const data = await fetchPokemonList(offset, PAGE_SIZE);
-    const detailed = await Promise.all(
-      data.results.map(async (p: any) => {
-        const res = await fetch(p.url);
-        return await res.json();
-      }),
-    );
-    setPokemon(prev => [...prev, ...detailed]);
+    const pokemonList = await fetchPokemonList(offset, PAGE_SIZE);
+    const pokemonData = await fetchPokemon(pokemonList.results);
+    setPokemon(prev => [...prev, ...pokemonData]);
     setOffset(prev => prev + PAGE_SIZE);
-    setHasMore(!!data.next);
+    setHasMore(!!pokemonList.next);
     setLoading(false);
   }, [offset, loading, hasMore]);
 

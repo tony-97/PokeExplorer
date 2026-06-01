@@ -2,22 +2,22 @@ import React from 'react';
 
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-import { Pokemon } from '../types/pokemon';
+import { PokemonData } from '../api/types';
 
 export default function PokemonItem({
-  pokemon,
+  pokemonData,
   isFavorite,
   onAdd,
   onRemove,
 }: {
-  pokemon: Pokemon;
+  pokemonData: PokemonData;
   isFavorite: boolean;
   onAdd: () => void;
   onRemove: () => void;
 }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{pokemon.name}</Text>
+      <Text style={styles.text}>{pokemonData.name}</Text>
       {isFavorite ? (
         <Button title="Remove" onPress={onRemove} />
       ) : (

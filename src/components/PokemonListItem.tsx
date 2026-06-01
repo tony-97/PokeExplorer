@@ -1,16 +1,7 @@
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { PokemonData } from '../api/types';
 import FavoriteIcon from './FavoriteIcon';
-
-interface PokemonType {
-  type: { name: string };
-}
-
-interface Pokemon {
-  name: string;
-  sprites?: { front_default?: string };
-  types?: PokemonType[];
-}
 
 export default function PokemonListItem({
   pokemon,
@@ -18,7 +9,7 @@ export default function PokemonListItem({
   onToggleFavorite,
   isFavorite,
 }: {
-  pokemon: Pokemon;
+  pokemon: PokemonData;
   onPress: () => void;
   onToggleFavorite?: () => void;
   isFavorite?: boolean;

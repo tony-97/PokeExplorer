@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Pokemon } from '../types/pokemon';
+import { PokemonData } from '../api/types';
 
 export interface AppState {
-  favorites: Pokemon[];
+  favorites: PokemonData[];
   isLoggedIn: boolean;
   user: string | null;
   loginError?: string | null;
@@ -19,7 +19,7 @@ const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    addFavorite: (state, action: PayloadAction<Pokemon>) => {
+    addFavorite: (state, action: PayloadAction<PokemonData>) => {
       state.favorites.push(action.payload);
     },
     removeFavorite: (state, action: PayloadAction<string>) => {
