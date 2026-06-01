@@ -1,4 +1,6 @@
 import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import { CompositeNavigationProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useCallback, useEffect, useState } from 'react';
 import {
@@ -12,16 +14,22 @@ import { fetchPokemon, fetchPokemonList } from '../api/pokeapi';
 import { PokemonData } from '../api/types';
 import PokemonListItem from '../components/PokemonListItem';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { MainTabParamList } from '../navigation/MainTabs';
 import { addFavorite, removeFavorite } from '../store/appSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { RootState } from '../store/store';
 
 const PAGE_SIZE = 20;
 
+type HomeScreenNavigationProp = CompositeNavigationProp<
+  BottomTabNavigationProp<MainTabParamList, 'Home'>,
+  StackNavigationProp<RootStackParamList>
+>;
+
 export default function HomeScreen({
   navigation,
 }: {
-  navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  navigation: HomeScreenNavigationProp;
 }) {
   const [pokemon, setPokemon] = useState<PokemonData[]>([]);
   const [offset, setOffset] = useState(0);
