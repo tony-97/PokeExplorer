@@ -33,17 +33,26 @@ export default function LoginScreen() {
         />
         <Text style={styles.title}>Iniciar sesión</Text>
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="Usuario"
-        value={username}
-        onChangeText={setUsername}
-        autoCapitalize="none"
-        leftIcon={<MaterialDesignIcons name="account" size={20} color="#888" />}
-      />
-      <View style={styles.passwordRow}>
+      <View style={styles.inputRow}>
         <TextInput
-          style={[styles.input, { flex: 1, color: '#222' }]}
+          style={styles.input}
+          placeholder="Usuario"
+          value={username}
+          onChangeText={setUsername}
+          autoCapitalize="none"
+          placeholderTextColor="#888"
+        />
+        <MaterialDesignIcons
+          style={styles.inputIcon}
+          name="account"
+          size={24}
+          color="#888"
+        />
+      </View>
+
+      <View style={styles.inputRow}>
+        <TextInput
+          style={styles.input}
           placeholder="Contraseña"
           value={password}
           onChangeText={setPassword}
@@ -52,7 +61,7 @@ export default function LoginScreen() {
         />
         <TouchableOpacity
           onPress={() => setShowPassword(v => !v)}
-          style={styles.eyeIcon}
+          style={styles.inputIcon}
         >
           <MaterialDesignIcons
             name={showPassword ? 'eye' : 'eye-off'}
@@ -94,24 +103,31 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   input: {
-    width: 280,
-    height: 44,
-    borderColor: '#E0E0E0',
-    borderWidth: 1,
-    marginBottom: 16,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    backgroundColor: '#fff',
+    flex: 1,
+    color: '#222',
+    alignSelf: 'stretch',
+    textAlignVertical: 'center',
     fontSize: 16,
   },
-  passwordRow: {
+  inputRow: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     width: 280,
-    marginBottom: 16,
+    height: 48,
+    marginBottom: 32,
+    paddingHorizontal: 12,
+    borderColor: '#E0E0E0',
+    borderWidth: 1,
+    borderRadius: 8,
+    backgroundColor: '#fff',
   },
-  eyeIcon: {
+  inputIcon: {
     marginLeft: 8,
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
     flexDirection: 'row',
