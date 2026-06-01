@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { PokemonData } from '../api/types';
 import DetailScreen from '../screens/DetailScreen';
 import LoginScreen from '../screens/LoginScreen';
-import { RootState } from '../store/store';
+import { useAppSelector } from '../store/hooks';
 import MainTabs from './MainTabs';
 
 export type RootStackParamList = {
@@ -18,7 +18,7 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export function AppNavigator() {
-  const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
+  const isLoggedIn = useAppSelector(state => state.isLoggedIn);
   return (
     <Stack.Navigator>
       {!isLoggedIn ? (
