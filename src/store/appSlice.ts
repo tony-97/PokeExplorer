@@ -23,7 +23,7 @@ const appSlice = createSlice({
       state.favorites.push(action.payload);
     },
     removeFavorite: (state, action: PayloadAction<string>) => {
-      state.favorites.filter(p => p.name !== action.payload);
+      state.favorites = state.favorites.filter(p => p.name !== action.payload);
     },
     loginSuccess: (state, action: PayloadAction<string>) => {
       state.isLoggedIn = true;
