@@ -2,7 +2,7 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { useSelector } from 'react-redux';
+import { PokemonData } from '../api/types';
 import DetailScreen from '../screens/DetailScreen';
 import LoginScreen from '../screens/LoginScreen';
 import { RootState } from '../store/store';
@@ -12,7 +12,7 @@ export type RootStackParamList = {
   Login: undefined;
   Main: undefined;
   Favorites: undefined;
-  Detail: { pokemon: any };
+  Detail: { pokemon: PokemonData };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
