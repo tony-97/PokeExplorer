@@ -31,7 +31,7 @@ export default function DetailScreen({
     <ScrollView contentContainerStyle={styles.container}>
       <Image
         source={{
-          uri: pokemon.sprites?.other['official-artwork'].front_default,
+          uri: pokemon.sprites?.other?.['official-artwork'].front_default,
         }}
         style={styles.image}
       />
@@ -43,17 +43,17 @@ export default function DetailScreen({
         style={{ marginBottom: 16, alignSelf: 'center' }}
       />
       <Text style={styles.types}>
-        Tipos: {pokemon.types.map((t: any) => t.type.name).join(', ')}
+        Tipos: {pokemon.types?.map(t => t.type.name).join(', ')}
       </Text>
       <Text style={styles.section}>Estadísticas:</Text>
-      {pokemon.stats.map((stat: any) => (
+      {pokemon.stats?.map(stat => (
         <Text key={stat.stat.name}>
           {stat.stat.name}: {stat.base_stat}
         </Text>
       ))}
       <Text style={styles.section}>Habilidades:</Text>
-      {pokemon.abilities.map((a: any) => (
-        <Text key={a.ability.name}>{a.ability.name}</Text>
+      {pokemon.abilities?.map(ability => (
+        <Text key={ability.ability.name}>{ability.ability.name}</Text>
       ))}
     </ScrollView>
   );

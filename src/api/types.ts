@@ -4,8 +4,13 @@ export interface PokemonType {
 
 export interface PokemonData {
   name: string;
-  sprites?: { front_default?: string };
+  sprites?: {
+    front_default?: string;
+    other?: { 'official-artwork': { front_default: string } };
+  };
   types?: PokemonType[];
+  stats?: { stat: { name: string; url: string }; base_stat: number }[];
+  abilities?: { ability: { name: string; url: string } }[];
 }
 
 export interface PokemonListItem {
