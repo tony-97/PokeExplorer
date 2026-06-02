@@ -14,14 +14,14 @@ PokeExplorer es una aplicación móvil hecha con **React Native** que utiliza la
 
 Descarga el aplicativo móvil para Android desde los [Releases de GitHub](https://github.com/tony-97/PokeExplorer/releases/latest).
 
-## Requisitos previos
-
-- Node.js y npm
-- [Configura tu entorno siguiendo la guía oficial](https://reactnative.dev/docs/set-up-your-environment)
-- Android Studio o Xcode (según plataforma)
-- [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework)
-
 ## Pasos para correr el proyecto
+
+1. **Requisitos previos**:
+
+   > - Node.js y npm
+   > - [Configura tu entorno siguiendo la guía oficial](https://reactnative.dev/docs/set-up-your-environment)
+   > - Android Studio o Xcode (según plataforma)
+   > - [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework)
 
 1. **Instala dependencias:**
    ```sh
@@ -29,13 +29,13 @@ Descarga el aplicativo móvil para Android desde los [Releases de GitHub](https:
    # o
    yarn install
    ```
-2. **Inicia el servidor Metro:**
+1. **Inicia el servidor Metro:**
    ```sh
    npm start
    # o
    yarn start
    ```
-3. **Ejecuta la app en Android:**
+1. **Ejecuta la app en Android:**
    ```sh
    npm run android
    # o
