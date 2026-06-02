@@ -13,9 +13,9 @@ PokeExplorer es una aplicación móvil hecha con **React Native** que utiliza la
 ## Requisitos previos
 
 - Node.js y npm
-- React Native CLI
+- [Configura tu entorno siguiendo la guía oficial](https://reactnative.dev/docs/set-up-your-environment)
 - Android Studio o Xcode (según plataforma)
-- [Configura tu entorno siguiendo la guía oficial](https://reactnative.dev/docs/environment-setup)
+- [React Native CLI](https://reactnative.dev/docs/getting-started-without-a-framework)
 
 ## Pasos para correr el proyecto
 
