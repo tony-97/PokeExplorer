@@ -56,4 +56,5 @@ jobs:
         if: github.ref_type == 'tag'
         with:
           files: android/app/build/outputs/apk/release/app-release.apk
+          body_path: ./CHANGELOG.md
           generate_release_notes: true
