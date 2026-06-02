@@ -45,6 +45,7 @@ jobs:
       - name: Build Android Release
         run: |
           cd android
+          ./gradlew generateCodegenArtifactsFromSchema --no-build-cache --no-daemon --warning-mode all
           ./gradlew assembleRelease --no-build-cache --no-daemon --warning-mode all
 
       # 7. Create a GitHub Release and upload the working APK
