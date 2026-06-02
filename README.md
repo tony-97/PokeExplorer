@@ -10,6 +10,10 @@ PokeExplorer es una aplicación móvil hecha con **React Native** que utiliza la
 - Visualizar y gestionar tu lista de favoritos.
 - Iniciar sesión y ver tu perfil.
 
+## Descargar
+
+Descarga el aplicativo móvil para Android desde los [Releases de GitHub](https://github.com/tony-97/PokeExplorer/releases/latest).
+
 ## Requisitos previos
 
 - Node.js y npm
