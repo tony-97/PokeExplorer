@@ -1,5 +1,16 @@
 # PokeExplorer
 
+[![Android Build](https://img.shields.io/github/actions/workflow/status/tony-97/PokeExplorer/android-release.yml?style=flat-square&logo=android&logoColor=white&label=Android%20Build)](https://github.com/tony-97/PokeExplorer/actions/workflows/android-release.yml)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+
+![React Native](https://img.shields.io/badge/React_Native-0.80-61DAFB?style=flat-square&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Node](https://img.shields.io/badge/Node-%3E%3D18-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white)
+
+![Redux](https://img.shields.io/badge/Redux_Toolkit-2.12-764ABC?style=flat-square&logo=redux&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-1.11-5A29E4?style=flat-square&logo=axios&logoColor=white)
+![PokeAPI](https://img.shields.io/badge/PokeAPI-v2-EF5350?style=flat-square&logo=pokemon&logoColor=white)
+
 PokeExplorer es una aplicación móvil hecha con **React Native** que utiliza la API pública [PokeAPI](https://pokeapi.co/) para explorar, buscar y gestionar tus Pokémon favoritos. El proyecto está diseñado siguiendo buenas prácticas de Material Design y navegación moderna, ideal para aprender y experimentar con React Native y consumo de APIs.
 
 ## ¿Qué puedes hacer?
